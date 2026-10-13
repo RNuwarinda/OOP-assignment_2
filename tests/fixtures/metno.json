@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "timeseries": [
+      {
+        "time": "2026-10-10T12:00:00Z",
+        "data": {
+          "instant": {
+            "details": {
+              "air_temperature": 11.3,
+              "wind_speed": 3.2
+            }
+          },
+          "next_1_hours": {
+            "summary": {"symbol_code": "partlycloudy_day"},
+            "details": {"precipitation_amount": 0.1}
+          }
+        }
+      }
+    ]
+  }
+}
