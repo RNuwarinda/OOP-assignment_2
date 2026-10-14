@@ -4,6 +4,8 @@
 - Name: NUWARINDA ROSELINE
 - Access Number: B38638
 - Student Number:S26M19/017
+
+
 ## About the assignment
 This assignment focused on applying object-oriented programming principles to solve real-world problems in Python. The repository contains two mini-projects:
 
