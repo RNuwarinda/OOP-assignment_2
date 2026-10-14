@@ -41,6 +41,18 @@ The offline sample checks decode WMO code 1 as “Mainly clear” and code 61 as
 
 Forecast data are model outputs and are not guaranteed to be accurate or continuously available. This coursework notebook is not suitable as a safety-critical source.
 
+# Mini-Project 2: Uganda Tax Engine
+
+A second notebook, `project2_tax_engine.ipynb`, demonstrates a Uganda tax engine built around reusable object-oriented design. It implements progressive PAYE, payroll deduction ordering, VAT calculations, corporate income tax, and a simple withholding-tax extension. The logic lives in `src/uganda_tax.py`, and the formal checks are in `tests/test_uganda_tax.py`.
+
+## Running the tax engine tests
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+The tax suite checks PAYE band boundaries, VAT arithmetic, corporate tax logic, input validation, and property-based invariants using `hypothesis`.
+
 ## Repository submission
 
 The configured GitHub remote is `https://github.com/RNuwarinda/OOP-assignment_2`. Push the repository there, confirm the notebook and fixtures are present, and submit that single repository URL on Moodle. This workspace does not push changes automatically.
