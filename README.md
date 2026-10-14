@@ -1,58 +1,59 @@
-# Mini-Project 1: Weather Forecast
+# Object-Oriented Programming Assignment 2
 
-A Python notebook that searches for a place, fetches a local-time Open-Meteo daily forecast, and displays a table, summary, and temperature/precipitation chart. HTTP calls, validation, retry policy, and response parsing are reusable functions in `src/weather_api.py`.
+## Student details
+- Name: NUWARINDA ROSELINE
+- Access Number: B38638
+- Student Number:S26M19/017
+## About the assignment
+This assignment focused on applying object-oriented programming principles to solve real-world problems in Python. The repository contains two mini-projects:
+
+- A weather forecast application that fetches and processes location and forecast data.
+- A Uganda tax engine that calculates tax values using business rules and validation logic.
+
+The goal was to design reusable classes and functions, structure the project logically, and test the code to ensure correctness and reliability.
+
+## Key findings
+- The weather project showed how API responses can be validated, parsed, and handled safely when data is missing or invalid.
+- The tax engine demonstrated how rules such as PAYE, VAT, and corporate tax can be modelled in a clear and maintainable way.
+- Testing is essential in OOP projects because edge cases and boundary values often reveal logic errors that are not obvious during implementation.
+- Reusable design helps reduce duplication and makes it easier to extend the system in the future.
 
 ## Setup
-
-Python 3.10 or newer is recommended.
+To run this project locally, use the following commands in PowerShell:
 
 ```powershell
-py -m venv venv
-.\venv\Scripts\Activate.ps1
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 ```
 
-In VS Code, open `project1_weather.ipynb`, choose the workspace `venv` Python kernel, and use **Restart & Run All**. The notebook has one configuration cell for location, forecast days, candidate selection, and contact email. Before enabling the MET Norway request, replace `YOUR_UNIVERSITY_EMAIL` with your own university email or set the `UNIVERSITY_EMAIL` environment variable. Do not commit personal contact details if the repository is public; configure the environment variable locally instead.
+After installation, open the notebooks in VS Code and run them from the project environment:
 
-The default city is Dresden. If a place has multiple matches, all candidates are listed and `CANDIDATE_INDEX` in the configuration cell chooses the location. If the live geocoding or forecast request fails, the notebook clearly switches to the saved fixture and completes without pretending that sample values are current.
+- `project1_weather.ipynb`
+- `project2_tax_engine.ipynb`
 
 ## Tests
-
-Tests use saved JSON and do not contact the APIs:
-
-```powershell
-python -m unittest discover -s tests -v
-```
-
-Eight tests check geocoding results, empty results, forecast parsing and WMO descriptions, invalid response shape, MET Norway parsing, coordinate validation, offline failure, and retry behavior. The notebook also runs eight fixture-backed assertions. The project does not use random sampling, so a random seed is not applicable.
-
-## Findings
-
-In the verified live run on 10 October 2026, the Open-Meteo geocoding request returned HTTP 200 with an `application/json` content type in about 3.681 seconds. The selected result was Dresden, Saxony, Germany; the seven-day forecast had a maximum daily high of 19.7 °C on 16 October and maximum daily precipitation of 4.4 mm on 10 October. These are observations from that run only; forecasts change over time. The MET Norway call was not made because the contact email remains a placeholder.
-
-The offline sample checks decode WMO code 1 as “Mainly clear” and code 61 as “Slight rain,” and preserve daily units in the output columns. Requests have bounded exponential retries for network errors and server errors, while invalid coordinates fail before a network call. Live API availability and response times depend on the providers and network.
-
-## Sources and terms
-
-- Forecast and geocoding: [Open-Meteo documentation](https://open-meteo.com/en/docs) and [geocoding documentation](https://open-meteo.com/en/docs/geocoding-api).
-- Open-Meteo API data use [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) with attribution. Its free API is for non-commercial use and subject to published call limits; review [current terms](https://open-meteo.com/en/terms) before reuse.
-- Second source: [MET Norway Locationforecast 2.0](https://api.met.no/weatherapi/locationforecast/2.0/documentation). Its policy requires a descriptive User-Agent with contact details, low traffic, and CC BY 4.0 attribution. Review the [current Terms of Service](https://api.met.no/doc/TermsOfService) before deployment.
-- Location results are based on GeoNames as described by the geocoding documentation.
-
-Forecast data are model outputs and are not guaranteed to be accurate or continuously available. This coursework notebook is not suitable as a safety-critical source.
-
-# Mini-Project 2: Uganda Tax Engine
-
-A second notebook, `project2_tax_engine.ipynb`, demonstrates a Uganda tax engine built around reusable object-oriented design. It implements progressive PAYE, payroll deduction ordering, VAT calculations, corporate income tax, and a simple withholding-tax extension. The logic lives in `src/uganda_tax.py`, and the formal checks are in `tests/test_uganda_tax.py`.
-
-## Running the tax engine tests
+The project includes unit tests that validate the main logic and catch common errors.
 
 ```powershell
 python -m unittest discover -s tests -v
 ```
 
-The tax suite checks PAYE band boundaries, VAT arithmetic, corporate tax logic, input validation, and property-based invariants using `hypothesis`.
+These tests cover:
+- input validation
+- calculation correctness
+- error handling
+- boundary conditions
+- expected behavior for invalid or incomplete data
 
-## Repository submission
+## AI usage
+AI tools were used to support this assignment in the following ways:
 
-The configured GitHub remote is `https://github.com/RNuwarinda/OOP-assignment_2`. Push the repository there, confirm the notebook and fixtures are present, and submit that single repository URL on Moodle. This workspace does not push changes automatically.
+- Action workflow, this README and project documentation
+- helping debug test failures and edge cases
+- improving the structure and clarity of the README and project explanation
+
+AI-generated suggestions were reviewed and adjusted before being used in the final work.
+
+## Summary
+This assignment helped strengthen understanding of object-oriented design, modular code structure, testing practices, and practical problem solving in Python. The final project demonstrates both technical implementation and a disciplined approach to validation and debugging.
